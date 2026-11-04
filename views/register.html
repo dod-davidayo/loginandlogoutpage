@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Create account</h1>
+
+        {{if .Error}}<p class="alert error">{{.Error}}</p>{{end}}
+
+        <form method="POST" action="/register">
+            <label>Full name
+                <input type="text" name="name" value="{{.Name}}" required>
+            </label>
+            <label>Email
+                <input type="email" name="email" value="{{.Email}}" required>
+            </label>
+            <label>Password
+                <input type="password" name="password" minlength="8" required>
+            </label>
+            <label>Confirm password
+                <input type="password" name="confirm_password" minlength="8" required>
+            </label>
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="alt">Already have an account? <a href="/login">Log in</a></p>
+    </main>
+</body>
+
+</html>

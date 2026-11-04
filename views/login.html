@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Welcome back</h1>
+
+        {{if .Success}}<p class="alert success">Account created. Please log in.</p>{{end}}
+        {{if .Error}}<p class="alert error">{{.Error}}</p>{{end}}
+
+        <form method="POST" action="/login">
+            <label>Email
+                <input type="email" name="email" value="{{.Email}}" required>
+            </label>
+            <label>Password
+                <input type="password" name="password" required>
+            </label>
+            <button type="submit">Log in</button>
+        </form>
+
+        <p class="alt">No account yet? <a href="/register">Register</a></p>
+    </main>
+</body>
+
+</html>
